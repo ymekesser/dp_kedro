@@ -1,0 +1,29 @@
+import pandas as pd
+
+
+def load_hdb_resale_prices(hdb_resale_prices: pd.DataFrame) -> pd.DataFrame:
+    return hdb_resale_prices
+
+
+def load_mrt_stations(mrt_stations: pd.DataFrame) -> pd.DataFrame:
+    return mrt_stations
+
+
+def load_mrt_geodata(mrt_geodata: pd.DataFrame) -> pd.DataFrame:
+    return mrt_geodata
+
+
+def load_mall_geodata(mall_geodata: pd.DataFrame) -> pd.DataFrame:
+    return mall_geodata
+
+
+def load_hdb_address_geodata(hdb_address_geodata: pd.DataFrame) -> pd.DataFrame:
+    return hdb_address_geodata
+
+
+# def load_overpass_json_dataframe(source: Path):
+#     with source.open(encoding="utf-8") as f:
+#         data = json.load(f)
+
+#     data_dict = pd.json_normalize(data, record_path=["elements"])
+#     return pd.DataFrame.from_dict(data_dict, orient="columns")  # type: ignore

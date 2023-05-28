@@ -2,21 +2,23 @@
 #
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://kedro.readthedocs.io/en/stable/data/data_catalog.html
-hdb_resale_prices:
-  type: pandas.CSVDataSet
-  filepath: ..\\data\\resale-flat-prices-based-on-registration-date-from-jan-2017-onwards.csv
 
-mrt_stations:
+########## Data Sources ##########
+source_hdb_resale_prices:
+  type: pandas.CSVDataSet
+  filepath: ../data/resale-flat-prices-based-on-registration-date-from-jan-2017-onwards.csv
+
+source_mrt_stations:
   type: pandas.ExcelDataSet
-  filepath: ..\\data\\mrt_stations.xlsx
+  filepath: ../data/mrt_stations.xlsx
   load_args:
     engine: openpyxl
 
-hdb_address_geodata:
+source_hdb_address_geodata:
   type: pandas.CSVDataSet
-  filepath: ..\\data\\address_geolocations.csv
+  filepath: ../data/address_geolocations.csv
 
-mrt_geolocations:
+source_mrt_geodata:
   type: api.APIDataSet
   url: https://overpass-api.de/api/interpreter
   params:
@@ -26,7 +28,7 @@ mrt_geolocations:
       node(area)["subway"="yes"];
       out;
 
-mall_geolocations:
+source_mall_geodata:
   type: api.APIDataSet
   url: https://overpass-api.de/api/interpreter
   params:
@@ -39,3 +41,28 @@ mall_geolocations:
         relation["shop"="mall"](area.sg);
       );
       out center;
+
+########## Staging Data ##########
+
+staging_hdb_resale_prices:
+  type: pandas.CSVDataSet
+  filepath: data/01_staging/resale-flat-prices-based-on-registration-date-from-jan-2017-onwards.csv
+
+staging_mrt_stations:
+  type: pandas.ExcelDataSet
+  filepath: data/01_staging/mrt_stations.xlsx
+  load_args:
+    engine: openpyxl
+
+staging_hdb_address_geodata:
+  type: pandas.CSVDataSet
+  filepath: data/01_staging/address_geolodata.csv
+
+staging_mrt_geodata:
+  type: json.JSONDataSet
+  filepath: data/01_staging/mrt_geodata.json
+
+staging_mall_geodata:
+  type: json.JSONDataSet
+  filepath: data/01_staging/mall_geodata.json
+
