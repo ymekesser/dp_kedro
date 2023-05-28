@@ -2,3 +2,40 @@
 #
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://kedro.readthedocs.io/en/stable/data/data_catalog.html
+hdb_resale_prices:
+  type: pandas.CSVDataSet
+  filepath: ..\\data\\resale-flat-prices-based-on-registration-date-from-jan-2017-onwards.csv
+
+mrt_stations:
+  type: pandas.ExcelDataSet
+  filepath: ..\\data\\mrt_stations.xlsx
+  load_args:
+    engine: openpyxl
+
+hdb_address_geodata:
+  type: pandas.CSVDataSet
+  filepath: ..\\data\\address_geolocations.csv
+
+mrt_geolocations:
+  type: api.APIDataSet
+  url: https://overpass-api.de/api/interpreter
+  params:
+    data: >
+      [out:json];
+      area["ISO3166-1"="SG"][admin_level=2];
+      node(area)["subway"="yes"];
+      out;
+
+mall_geolocations:
+  type: api.APIDataSet
+  url: https://overpass-api.de/api/interpreter
+  params:
+    data: >
+      [out:json];
+      area["ISO3166-1"="SG"][admin_level=2]->.sg;
+      (
+        node["shop"="mall"](area.sg);
+        way["shop"="mall"](area.sg);
+        relation["shop"="mall"](area.sg);
+      );
+      out center;
