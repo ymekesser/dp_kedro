@@ -46,7 +46,7 @@ source_mall_geodata:
 
 staging_hdb_resale_prices:
   type: pandas.CSVDataSet
-  filepath: data/01_staging/resale-flat-prices-based-on-registration-date-from-jan-2017-onwards.csv
+  filepath: data/01_staging/hdb_resale_prices.csv
 
 staging_mrt_stations:
   type: pandas.ExcelDataSet
@@ -56,7 +56,7 @@ staging_mrt_stations:
 
 staging_hdb_address_geodata:
   type: pandas.CSVDataSet
-  filepath: data/01_staging/address_geolodata.csv
+  filepath: data/01_staging/address_geodata.csv
 
 staging_mrt_geodata:
   type: json.JSONDataSet
@@ -65,4 +65,28 @@ staging_mrt_geodata:
 staging_mall_geodata:
   type: json.JSONDataSet
   filepath: data/01_staging/mall_geodata.json
+
+########## Storage Data ##########
+
+storage_hdb_resale_prices:
+  type: pandas.CSVDataSet
+  filepath: data/02_storage/hdb_resale_prices.csv
+
+storage_mrt_stations:
+  type: pandas.CSVDataSet
+  filepath: data/02_storage/mrt_stations.csv
+  load_args:
+    engine: openpyxl
+
+storage_hdb_address_geodata:
+  type: pandas.CSVDataSet
+  filepath: data/02_storage/address_geodata.csv
+
+storage_mrt_geodata:
+  type: pandas.CSVDataSet
+  filepath: data/02_storage/mrt_geodata.csv
+
+storage_mall_geodata:
+  type: pandas.CSVDataSet
+  filepath: data/02_storage/mall_geodata.csv
 
