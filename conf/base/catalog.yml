@@ -94,4 +94,14 @@ transformed_analytics_feature_set:
   type: pandas.CSVDataSet
   filepath: data/03_transformed_analytics/feature_set.csv
 
+########## Analytics Data ##########
 
+model:
+  type: pickle.PickleDataSet
+  filepath: data/04_analytics/model.pickle
+  versioned: true
+
+metrics:
+  type: pandas.CSVDataSet
+  filepath: data/04_analytics/metrics.csv
+  versioned: true
