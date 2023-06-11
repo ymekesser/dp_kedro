@@ -6,17 +6,17 @@
 ########## Data Sources ##########
 source_hdb_resale_prices:
   type: pandas.CSVDataSet
-  filepath: ../data/resale-flat-prices-based-on-registration-date-from-jan-2017-onwards.csv
+  filepath: s3://mas-thesis-datapipeline-platform/source_data/resale-flat-prices-based-on-registration-date-from-jan-2017-onwards.csv
 
 source_mrt_stations:
   type: pandas.ExcelDataSet
-  filepath: ../data/mrt_stations.xlsx
+  filepath: s3://mas-thesis-datapipeline-platform/source_data/mrt_stations.xlsx
   load_args:
     engine: openpyxl
 
 source_hdb_address_geodata:
   type: pandas.CSVDataSet
-  filepath: ../data/address_geolocations.csv
+  filepath: s3://mas-thesis-datapipeline-platform/source_data/address_geolocations.csv
 
 source_mrt_geodata:
   type: api.APIDataSet
@@ -46,62 +46,62 @@ source_mall_geodata:
 
 staging_hdb_resale_prices:
   type: pandas.CSVDataSet
-  filepath: data/01_staging/hdb_resale_prices.csv
+  filepath: s3://mas-thesis-datapipeline-platform/dp-kedro/01_staging/hdb_resale_prices.csv
 
 staging_mrt_stations:
   type: pandas.ExcelDataSet
-  filepath: data/01_staging/mrt_stations.xlsx
+  filepath: s3://mas-thesis-datapipeline-platform/dp-kedro/01_staging/mrt_stations.xlsx
   load_args:
     engine: openpyxl
 
 staging_hdb_address_geodata:
   type: pandas.CSVDataSet
-  filepath: data/01_staging/address_geodata.csv
+  filepath: s3://mas-thesis-datapipeline-platform/dp-kedro/01_staging/address_geodata.csv
 
 staging_mrt_geodata:
   type: json.JSONDataSet
-  filepath: data/01_staging/mrt_geodata.json
+  filepath: s3://mas-thesis-datapipeline-platform/dp-kedro/01_staging/mrt_geodata.json
 
 staging_mall_geodata:
   type: json.JSONDataSet
-  filepath: data/01_staging/mall_geodata.json
+  filepath: s3://mas-thesis-datapipeline-platform/dp-kedro/01_staging/mall_geodata.json
 
 ########## Storage Data ##########
 
 storage_hdb_resale_prices:
   type: pandas.CSVDataSet
-  filepath: data/02_storage/hdb_resale_prices.csv
+  filepath: s3://mas-thesis-datapipeline-platform/dp-kedro/02_storage/hdb_resale_prices.csv
 
 storage_mrt_stations:
   type: pandas.CSVDataSet
-  filepath: data/02_storage/mrt_stations.csv
+  filepath: s3://mas-thesis-datapipeline-platform/dp-kedro/02_storage/mrt_stations.csv
 
 storage_hdb_address_geodata:
   type: pandas.CSVDataSet
-  filepath: data/02_storage/address_geodata.csv
+  filepath: s3://mas-thesis-datapipeline-platform/dp-kedro/02_storage/address_geodata.csv
 
 storage_mrt_geodata:
   type: pandas.CSVDataSet
-  filepath: data/02_storage/mrt_geodata.csv
+  filepath: s3://mas-thesis-datapipeline-platform/dp-kedro/02_storage/mrt_geodata.csv
 
 storage_mall_geodata:
   type: pandas.CSVDataSet
-  filepath: data/02_storage/mall_geodata.csv
+  filepath: s3://mas-thesis-datapipeline-platform/dp-kedro/02_storage/mall_geodata.csv
 
 ########## Transformed Analytics Data ##########
 
 transformed_analytics_feature_set:
   type: pandas.CSVDataSet
-  filepath: data/03_transformed_analytics/feature_set.csv
+  filepath: s3://mas-thesis-datapipeline-platform/dp-kedro/03_transformed_analytics/feature_set.csv
 
 ########## Analytics Data ##########
 
 model:
   type: pickle.PickleDataSet
-  filepath: data/04_analytics/model.pickle
+  filepath: s3://mas-thesis-datapipeline-platform/dp-kedro/04_analytics/model.pickle
   versioned: true
 
 metrics:
   type: pandas.CSVDataSet
-  filepath: data/04_analytics/metrics.csv
+  filepath: s3://mas-thesis-datapipeline-platform/dp-kedro/04_analytics/metrics.csv
   versioned: true
