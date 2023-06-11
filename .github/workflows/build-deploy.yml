@@ -28,7 +28,9 @@ jobs:
         run: kedro docker init
       
       - name: Build Kedro Docker Image
-        run: kedro docker build --image ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com/${{ vars.AWS_ECR_REPOSITORY }}:latest
+        run: >
+          kedro docker build
+          --image ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ vars.AWS_REGION }}.amazonaws.com/${{ vars.AWS_ECR_REPOSITORY }}:latest
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
