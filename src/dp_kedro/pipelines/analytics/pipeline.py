@@ -18,11 +18,11 @@ def create_pipeline(**kwargs) -> Pipeline:
                 outputs="model",
                 name="train_model_node",
             ),
-            node(
-                func=evaluate_model,
-                inputs=["model", "X_train", "y_train", "X_test", "y_test"],
-                outputs="metrics",
-                name="evaluate_model_node",
-            ),
+            # node(
+            #     func=evaluate_model,
+            #     inputs=["model", "X_train", "y_train", "X_test", "y_test"],
+            #     outputs="metrics",
+            #     name="evaluate_model_node",
+            # ),
         ],
     )  # type: ignore
