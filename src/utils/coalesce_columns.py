@@ -2,7 +2,7 @@ import pandas as pd
 from functools import reduce
 
 
-def coalesce_colums(df: pd.DataFrame, cols: list[str], out_col: str) -> pd.DataFrame:
+def coalesce_colums(df: pd.DataFrame, cols: list, out_col: str) -> pd.DataFrame:
     series = [df[col] for col in cols]
 
     coalesced_series = reduce(
