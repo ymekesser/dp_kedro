@@ -6,7 +6,7 @@
 ########## Data Sources ##########
 source_hdb_resale_prices:
   type: pandas.CSVDataSet
-  filepath: s3://mas-thesis-datapipeline-platform/source_data/resale-flat-prices-based-on-registration-date-from-jan-2017-onwards.csv
+  filepath: s3://mas-thesis-datapipeline-platform/source_data/resale-flat-prices-big-set.csv
 
 source_mrt_stations:
   type: pandas.ExcelDataSet
